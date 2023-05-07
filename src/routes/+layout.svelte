@@ -63,7 +63,7 @@
 					<svelte:fragment slot="trail">
 						<div class="flex flex-row items-center text-lg my-menu">
 							<div>
-								<a href="/" class="hover:font-bold mr-5"> Hello </a>
+								<a href="/" class="btn hover:font-bold"> Hello </a>
 							</div>
 							<!-- dropdown -->
 							<div>
@@ -74,19 +74,19 @@
 								<div class="card p-4 w-60 shadow-xl mx-auto" data-popup="popupclick">
 									<nav class="list">
 										<ul>
-											<li class="hover:bg-primary-500">
+											<li class="hover:bg-primary-500 hover:text-white">
 												<a href="/">
 													<span class="w-6 text-center"><i class="fa-solid fa-home" /></span>
 													<span class="ml-2">Homepage</span>
 												</a>
 											</li>
-											<li class="hover:bg-primary-500 hover:outline-white">
+											<li class="hover:bg-primary-500 hover:text-white">
 												<a href="/docs/get-started">
 													<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
 													<span class="ml-2">Documentation</span>
 												</a>
 											</li>
-											<li class="hover:bg-primary-500">
+											<li class="hover:bg-primary-500 hover:text-white">
 												<a href="/blog">
 													<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
 													<span class="ml-2">Blog</span>
@@ -98,7 +98,9 @@
 									<div class="arrow bg-surface-100-800-token" />
 								</div>
 							</div>
-							<button type="button" class="ml-2 btn variant-filled-primary text-white font-bold"
+							<button
+								type="button"
+								class="ml-2 btn variant-filled-primary hover:bg-primary-700 text-white font-bold"
 								>Contact Us</button
 							>
 						</div>
@@ -181,7 +183,7 @@
 						<!-- button close -->
 						<li class="flex justify-end">
 							<button
-								class="btn-icon variant-filled-secondary"
+								class="btn btn-icon"
 								on:click={() => {
 									close();
 								}}
