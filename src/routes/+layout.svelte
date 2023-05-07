@@ -1,12 +1,7 @@
 <script lang="ts">
-	import {
-		AppBar,
-		AppShell,
-		LightSwitch,
-		ListBox,
-		modalStore,
-		popup
-	} from '@skeletonlabs/skeleton';
+	import { Drawer, drawerStore } from '@skeletonlabs/skeleton';
+	import type { DrawerSettings } from '@skeletonlabs/skeleton';
+	import { AppBar, AppShell, LightSwitch, popup } from '@skeletonlabs/skeleton';
 
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
@@ -27,20 +22,33 @@
 		placement: 'bottom'
 		// Close the popup when the item is clicked
 	};
-	// fix isOpen
+	const drawerSettings: DrawerSettings = {
+		id: 'example-3',
+		position: 'right',
+		width: 'w-[350px] ',
+		padding: 'p-4',
+		rounded: 'rounded-xl'
+	};
+	function trigger(): void {
+		drawerStore.open(drawerSettings);
+	}
+	function close(): void {
+		drawerStore.close();
+	}
 </script>
 
 <!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header" />
 	<svelte:fragment slot="pageHeader">
-		<div class="bg-slate-100">
+		<!-- only show this in desktop mode -->
+		<div class="shadow-md">
 			<div class="container mx-auto">
 				<AppBar
 					gridColumns="grid-cols-3"
-					background=""
 					slotDefault="place-self-center"
 					slotTrail="place-content-end"
+					background=""
 				>
 					<svelte:fragment slot="lead">
 						<a href="/"
@@ -53,38 +61,35 @@
 					>
 
 					<svelte:fragment slot="trail">
-						<div class="flex flex-row items-center text-lg">
+						<div class="flex flex-row items-center text-lg my-menu">
 							<div>
-								<a href="/" class="hover:font-bold hover:underline mr-5"> Hello </a>
+								<a href="/" class="hover:font-bold mr-5"> Hello </a>
 							</div>
 							<!-- dropdown -->
 							<div>
-								<button
-									class="btn hover:bg-blue-700 hover:underline hover:text-white"
-									use:popup={popupclick}
-								>
+								<button class="btn hover:bg-primary-700 hover:text-white" use:popup={popupclick}>
 									<span class="text-lg">Dropdown menu</span>
 									<i class="fa-sharp fa-solid fa-caret-down" />
 								</button>
-								<div class="card p-4 w-60 shadow-xl" data-popup="popupclick">
-									<nav class="list-nav">
+								<div class="card p-4 w-60 shadow-xl mx-auto" data-popup="popupclick">
+									<nav class="list">
 										<ul>
-											<li>
+											<li class="hover:bg-primary-500">
 												<a href="/">
 													<span class="w-6 text-center"><i class="fa-solid fa-home" /></span>
-													<span>Homepage</span>
+													<span class="ml-2">Homepage</span>
 												</a>
 											</li>
-											<li>
+											<li class="hover:bg-primary-500 hover:outline-white">
 												<a href="/docs/get-started">
 													<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
-													<span>Documentation</span>
+													<span class="ml-2">Documentation</span>
 												</a>
 											</li>
-											<li>
+											<li class="hover:bg-primary-500">
 												<a href="/blog">
 													<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
-													<span>Blog</span>
+													<span class="ml-2">Blog</span>
 												</a>
 											</li>
 											<!-- <hr class="!my-4" /> -->
@@ -93,13 +98,90 @@
 									<div class="arrow bg-surface-100-800-token" />
 								</div>
 							</div>
-							<button type="button" class="ml-2 btn variant-filled-primary">Contact Us</button>
+							<button type="button" class="ml-2 btn variant-filled-primary text-white font-bold"
+								>Contact Us</button
+							>
+						</div>
+
+						<div class="visible md:hidden">
+							<button
+								class="btn-icon variant-filled"
+								on:click={() => {
+									trigger();
+								}}
+							>
+								<i class="fa-solid fa-arrow-left" />
+							</button>
 						</div>
 						<!-- <LightSwitch /> -->
 					</svelte:fragment>
 				</AppBar>
 			</div>
 		</div>
+		<Drawer>
+			<div class="w-full text-token card p-4 space-y-4">
+				<nav class="list-nav text-center">
+					<ul>
+						<li>
+							<a
+								href="/"
+								class="hover:font-bold mx-auto"
+								on:click={() => {
+									close();
+								}}
+							>
+								Home</a
+							>
+						</li>
+						<li>
+							<a
+								href="/"
+								class="hover:font-bold mx-auto"
+								on:click={() => {
+									close();
+								}}
+							>
+								Home</a
+							>
+						</li>
+						<li>
+							<a
+								href="/"
+								class="hover:font-bold mx-auto"
+								on:click={() => {
+									close();
+								}}
+							>
+								Home</a
+							>
+						</li>
+						<li>
+							<a
+								href="/"
+								class="hover:font-bold mx-auto"
+								on:click={() => {
+									close();
+								}}
+							>
+								Home</a
+							>
+						</li>
+						<li>
+							<a
+								href="/"
+								class="hover:font-bold mx-auto"
+								on:click={() => {
+									close();
+								}}
+							>
+								Home</a
+							>
+						</li>
+						<!-- <hr class="!my-4" /> -->
+					</ul>
+				</nav>
+			</div>
+		</Drawer>
 	</svelte:fragment>
 	<!-- Router Slot -->
 	<slot />
@@ -107,3 +189,11 @@
 	<svelte:fragment slot="pageFooter" />
 	<svelte:fragment slot="footer" />
 </AppShell>
+
+<style>
+	@media only screen and (max-width: 768px) {
+		.my-menu {
+			display: none;
+		}
+	}
+</style>
