@@ -23,9 +23,9 @@
 		// Close the popup when the item is clicked
 	};
 	const drawerSettings: DrawerSettings = {
-		id: 'example-3',
 		position: 'right',
-		width: 'w-[350px] ',
+		width: 'w-[350px]',
+		height: 'h-fit',
 		padding: 'p-4',
 		rounded: 'rounded-xl'
 	};
@@ -105,12 +105,12 @@
 
 						<div class="visible md:hidden">
 							<button
-								class="btn-icon variant-filled"
+								class="btn-icon"
 								on:click={() => {
 									trigger();
 								}}
 							>
-								<i class="fa-solid fa-arrow-left" />
+								<i class="fa-solid fa-bars" />
 							</button>
 						</div>
 						<!-- <LightSwitch /> -->
@@ -177,7 +177,18 @@
 								Home</a
 							>
 						</li>
-						<!-- <hr class="!my-4" /> -->
+						<hr class="!my-4" />
+						<!-- button close -->
+						<li class="flex justify-end">
+							<button
+								class="btn-icon variant-filled-secondary"
+								on:click={() => {
+									close();
+								}}
+							>
+								<i class="fa-solid fa-close" />
+							</button>
+						</li>
 					</ul>
 				</nav>
 			</div>
