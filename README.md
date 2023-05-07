@@ -3,6 +3,9 @@
 Library used 
 - Skeleton UI toolkit for Svelte = https://www.skeleton.dev/ 
 
+Backend
+- Pocketbase = https://ajakjago-pocketbase.pockethost.io/
+
 
 ---
 
