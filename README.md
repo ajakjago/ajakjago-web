@@ -1,3 +1,13 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c6f022f4-d43a-405a-8410-883c65f4a9a6/deploy-status)](https://app.netlify.com/sites/steady-haupia-a524b7/deploys)
+
+
+Library used 
+- Skeleton UI toolkit for Svelte = https://www.skeleton.dev/ 
+
+
+---
+
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

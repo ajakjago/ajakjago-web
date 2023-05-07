@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
+
 	// Your selected Skeleton theme:
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 
@@ -9,4 +11,15 @@
 	import '../app.postcss';
 </script>
 
-<slot />
+<!-- App Shell -->
+<AppShell regionPage="relative" slotPageHeader="sticky top-0 z-10">
+	<svelte:fragment slot="header" />
+	<svelte:fragment slot="pageHeader">
+		<AppBar>AjakJago</AppBar>
+	</svelte:fragment>
+	<!-- Router Slot -->
+	<slot />
+	<!-- ---- / ---- -->
+	<svelte:fragment slot="pageFooter" />
+	<svelte:fragment slot="footer" />
+</AppShell>
