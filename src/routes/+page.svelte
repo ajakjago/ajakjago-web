@@ -1,13 +1,10 @@
 <script lang="ts">
-	import { AppBar, AppShell, ListBox, ListBoxItem, popup } from '@skeletonlabs/skeleton';
-	import { LightSwitch } from '@skeletonlabs/skeleton';
-
-	let comboboxValue: string;
+	import { AppShell } from '@skeletonlabs/skeleton';
 </script>
 
 <AppShell>
-	<div class="flex items-center justify-center h-screen">
-		<div class="container p-8 space-y-8">
+	<div class="flex items-center h-screen">
+		<div class="container mx-auto py-8 space-y-8">
 			<h1>Hello World</h1>
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 			<section>
