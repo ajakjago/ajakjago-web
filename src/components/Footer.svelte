@@ -12,15 +12,15 @@
 		<!-- Row 1 -->
 		<section class={cRowOne}>
 			<div
-				class="grid grid-cols-1 gap-2 place-content-center place-items-center md:place-items-start"
+				class="grid grid-cols-1 place-content-center place-items-center md:place-items-start"
 			>
-				<img src="error.webp" alt="/" class="w-auto h-44" />
+				<img src="/error.webp" alt="/" class="w-auto h-44" />
 
 				<!-- <p class="!text-lg opacity-80">Tagline AjakJago</p> -->
 				<!-- Current Version -->
 				<!-- <span class="badge variant-soft">ss</span> -->
 			</div>
-			<div class="hidden md:grid grid-cols-3 gap-8">
+			<div class="hidden md:grid grid-cols-3 gap-12">
 				<div class="space-y-6">
 					<h6 class="h6">Explore</h6>
 					<ul class="space-y-3">
